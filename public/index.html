@@ -1,0 +1,85 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="nodeTodo">
+<!-- ng-app - atrybut, wystarczy prefix data-nazwa-atrybutu - wlasne atrybuty ale zgodne z html -->
+
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+    <title>Node/Angular Todo App</title>
+
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+    <style>
+        html                                         { overflow-y:scroll; }
+        body                                         { padding-top:50px; }
+        #todo-list                                 { margin-bottom:30px; }
+        #todo-form                                  { margin-bottom:50px; }
+    </style>
+    <link rel="stylesheet" href="/style.css"><
+    <!-- SPELLS -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery get element by id mozna bylo -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="core.js"></script>
+
+</head>
+<!-- w body troche lamersko :P SET THE CONTROLLER AND GET ALL TODOS WITH INITIALIZE FUNCTION -->
+<body ng-controller="mainController">
+<div class="container">
+
+    <!-- HEADER AND TODO COUNT -->
+    <div class="jumbotron text-center">
+        <!-- podwojne wasy - odwoluje sie do kontekstu naszego kontrolera, w ktorej mozemy trzymac zmienne,
+    wyswietlenie wartosci z tego kontekstu, moim scopie mam takie zmienne jak cos i todos - cos jest jakims stringiem, a toodos jest
+    tablica i wyswietlam jej dlugosc -->
+        <h1> ToDO - {{ cos }} <span class="label label-info">{{ todos.length }}</span></h1>
+    </div>
+
+    <!-- TODO LIST -->
+    <div id="todo-list" class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+
+            <!-- LOOP OVER THE TODOS IN $scope.todos -->
+            <div class="checkbox" ng-repeat="todo in todos.slice().reverse()"> <!--  ng-repeat musielibysmy generowac cos w petli, a ng repeat juz zatroszczy sie by powtorzyc go tyle razy ile bedzie elementow -->
+               <li class="list-group-item">
+                     {{ todo.text }} {{ todo.done }}
+                    <div class="material-switch pull-right">
+                        <input id="{{todo._id}}" type="checkbox" ng-click="updateTodo(todo._id)" ng-checked="todo.done">                       
+                        <label for=" {{todo._id}} " class="label-success" >
+                        </label>
+
+
+                    </div>
+                </li> 
+              <!--   <label>
+                 <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }} <!-- ng-click - separowanie do roznych wywyoluje element z bazy przez niejawny identyfikator z bazy danych </label>-->
+                     
+                
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FORM TO CREATE TODOS -->
+    <div id="todo-form" class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+            <form>
+                <div class="form-group">
+
+                    <!-- BIND THIS VALUE TO formData.text IN ANGULAR zawartosc z inputa leci do pola tekst-->
+                    <input type="text" class="form-control input-lg text-center" placeholder="Co planujesz robić?" ng-model="formData.text">
+                </div>
+
+                <!-- createToDo() WILL CREATE NEW TODOS -->
+                <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -2,7 +2,7 @@ var nodeTodo = angular.module('nodeTodo', []);
 
 function mainController($scope, $http) {
     $scope.formData = {};
-
+    $scope.checker=true;
     $scope.cos = 'liczba zadań:';
 
     // when landing on the page, get all todos and show them
@@ -39,9 +39,7 @@ function mainController($scope, $http) {
     $scope.updateTodo = function(id) {
         $http.put('/api/todos/' + id)
             .success(function(data) {
-                $scope.todos.done = true;
                 $scope.todos = data; 
-
             })
             .error(function(data) {
                 console.log('Error: ' + data);

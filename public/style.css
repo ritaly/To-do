@@ -1,3 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Source+Sans+Pro');
+
+body {
+    background-image: url(./img/overlay.png), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url(./img/bg.jpg);
+    background-image: url(./img/overlay.png), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url(./img/bg.jpg);
+    background-image: url(./img/overlay.png), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url(./img/bg.jpg);
+    background-image: url(./img/overlay.png), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url(./img/bg.jpg);
+    background-repeat: repeat, no-repeat, no-repeat;
+    background-size: 100px 100px, cover, cover;
+    background-position: top left, center center, bottom center;
+    background-attachment: fixed, fixed, fixed;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:18px;
+}
+
+.container {
+    max-width: 960px;
+    background: #fff;
+}
+h1 {
+    font-family: 'Raleway', sans-serif;
+    margin: 2em 1em;
+    text-transform:uppercase;
+    letter-spacin:0.2em;
+}
 .material-switch > input[type="checkbox"] {
     display: none;   
 }
@@ -47,3 +72,26 @@
     display: inline-block;
     margin-bottom: 5px;
     }
+
+.list-group-item:first-child {
+    border-radius: 0;
+    border-left:none;
+    border-right:none;
+}
+.list-group-item>span{
+    font-size:0.9em;
+    color:#ccc;
+}
+
+.form-control {
+    border:none;
+    box-shadow:none;
+}
+
+.btn-lg {
+     border-radius: 1px;
+     text-transform: uppercase;
+    color: #414f57;
+    font-weight: 300;
+    letter-spacing:0.2em;
+}

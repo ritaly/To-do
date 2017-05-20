@@ -5,7 +5,7 @@ var mongoose = require('mongoose');    // mongoose for mongodb
 var server = require('http').createServer(app);
 
 // configuration ===============================================================
-
+server.listen(process.env.PORT || 3000);
 mongoose.connect('mongodb://user:pass123@ds111559.mlab.com:11559/studia');         // połączenie z bazą danych, conectionstring
 
 app.configure(function() {
@@ -102,5 +102,5 @@ var Todo = mongoose.model('Todo', {  //aplikacja ma zazadanie zarzadzac prosta l
         });
 
 // listen (start app with node server.js) ======================================
-server.listen(process.env.PORT || 3000);
+
 

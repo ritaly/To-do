@@ -102,5 +102,4 @@ var Todo = mongoose.model('Todo', {  //aplikacja ma zazadanie zarzadzac prosta l
 
 // listen (start app with node server.js) ======================================
 app.listen(process.env.PORT || 3000);
-console.log("App listening on port ");
 

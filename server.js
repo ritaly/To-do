@@ -4,6 +4,7 @@ var app      = express();    // create our app w/ express
 var mongoose = require('mongoose');    // mongoose for mongodb
 
 // configuration ===============================================================
+app.set('port', (process.env.PORT || 5000));
 
 mongoose.connect('mongodb://user:pass123@ds111559.mlab.com:11559/studia');         // połączenie z bazą danych, conectionstring
 
@@ -15,8 +16,8 @@ app.configure(function() {
 });
 
 // define model ================================================================
-var Todo = mongoose.model('Todo', {  //aplikacja ma zazadanie zarzadzac prosta lista to do - tworzyc nowe to do i usuwa stare
-                                        // stad przechowuje dwa text i czy done
+var Todo = mongoose.model('Todo', {  
+                                        
         text : String,
         done : Boolean
 });
@@ -101,6 +102,7 @@ var Todo = mongoose.model('Todo', {  //aplikacja ma zazadanie zarzadzac prosta l
         });
 
 // listen (start app with node server.js) ======================================
-app.listen(process.env.PORT || 3000);
-console.log("App listening on port ");
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
 

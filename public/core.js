@@ -37,7 +37,7 @@ function mainController($scope, $http) {
             });
     };
     $scope.updateTodo = function(id) {
-        $http.put('/api/todos/' + id)
+        $http.patch('/api/todos/' + id)
             .success(function(data) {
                 $scope.todos = data; 
             })

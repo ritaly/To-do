@@ -3,6 +3,8 @@ var express  = require('express');
 var app      = express();    // create our app w/ express
 var mongoose = require('mongoose');    // mongoose for mongodb
 
+//var port = 3000;
+
 // configuration ===============================================================
 
 mongoose.connect('mongodb://user:pass123@ds111559.mlab.com:11559/studia');         // połączenie z bazą danych, conectionstring

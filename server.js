@@ -3,8 +3,6 @@ var express  = require('express');
 var app      = express();    // create our app w/ express
 var mongoose = require('mongoose');    // mongoose for mongodb
 
-var port = 3000;
-
 // configuration ===============================================================
 
 mongoose.connect('mongodb://user:pass123@ds111559.mlab.com:11559/studia');         // połączenie z bazą danych, conectionstring
@@ -66,7 +64,7 @@ var Todo = mongoose.model('Todo', {  //aplikacja ma zazadanie zarzadzac prosta l
       var actual;
       Todo.findById(req.params.todo_id, function(err, todo) {
                 actual = todo.done;
-        
+
             Todo.update( { _id: req.params.todo_id },
                 { done: !actual
                  }, function(err, todo) {
@@ -103,6 +101,5 @@ var Todo = mongoose.model('Todo', {  //aplikacja ma zazadanie zarzadzac prosta l
         });
 
 // listen (start app with node server.js) ======================================
-app.listen(port);
-console.log("App listening on port " + port);
-
+app.listen(process.env.PORT || 3000);
+console.log("App listening on port ");

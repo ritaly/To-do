@@ -24,14 +24,14 @@ h1 {
     letter-spacin:0.2em;
 }
 .material-switch > input[type="checkbox"] {
-    display: none;   
+    display: none;
 }
 
 .material-switch > label {
     cursor: pointer;
     height: 0px;
-    position: relative; 
-    width: 40px;  
+    position: relative;
+    width: 40px;
 }
 
 .material-switch > label::before {
@@ -84,8 +84,9 @@ h1 {
 }
 
 .form-control {
-    border:none;
-    box-shadow:none;
+  border: 1px dashed #ccc;
+      box-shadow: none;
+      border-radius: 1px;
 }
 
 .btn-lg {
